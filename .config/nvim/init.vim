@@ -24,12 +24,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'vim-airline/vim-airline'
   Plug 'preservim/nerdtree'
+  Plug 'preservim/tagbar'
+
+"Code completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " }}}
 
 
-" MAPPINGS --------------------------------------------------------------- {{{
+" MAPPINGS ------------- -------------------------------------------------- {{{
 
 
 inoremap jj <esc>
@@ -41,6 +45,11 @@ map <F2> :NERDTreeToggle<CR>
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
+
+
+" tagbar mappings
+map <F8> :TagbarToggle<CR>
+
 
 " }}}
 
@@ -65,6 +74,38 @@ if version >= 703
     set undoreload=10000
 endif
 
+" Fixes for powerline fonts realted to airline
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+
 " }}}
 
 
@@ -72,9 +113,10 @@ endif
 
 " Status bar code goes here.
 
+
 " }}}
 
-let g:airline_theme='nord_minimal'
+"let g:airline_theme='nord_minimal'
 
 set nocompatible
 
@@ -123,7 +165,6 @@ set incsearch
 " Ignore capital letters during search.
 set ignorecase
 
-" Override the ignorecase option if searching for capital letters.
 " This will allow you to search specifically for capital letters.
 set smartcase
 
@@ -143,3 +184,8 @@ set hlsearch
 set history=1000
 
 colorscheme nightfox
+
+"fixes for passtough of mouse clicks for vim inside tmux
+"set ttymouse=xterm2
+set mouse=a
+
