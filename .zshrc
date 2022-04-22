@@ -107,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# Custom dotfiles repo alias
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # FZF settup
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
