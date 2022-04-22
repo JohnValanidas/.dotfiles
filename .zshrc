@@ -107,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# FZF settup
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # react native setup
 #export ANDROID_HOME=$HOME/Android/Sdk/tools

@@ -138,6 +138,13 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias vim="nvim"
 
+# FZF settup
+# fzf keybindings
+source /usr/share/doc/fzf/examples/key-bindings.bash
+# auto compleetion
+source /usr/share/doc/fzf/examples/completion.bash
+
+
 # react native setup
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator

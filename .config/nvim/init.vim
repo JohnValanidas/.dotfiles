@@ -25,7 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'preservim/nerdtree'
   Plug 'preservim/tagbar'
-
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Code completion
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
