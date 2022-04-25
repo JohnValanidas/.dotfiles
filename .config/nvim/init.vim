@@ -13,6 +13,8 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " Plugin code goes here.
 
+lua require('plugins')
+
 " For Vim-Plug
 call plug#begin('~/.vim/plugged')
 
@@ -26,8 +28,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'preservim/tagbar'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 "Code completion
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " }}}
