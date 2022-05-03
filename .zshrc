@@ -114,6 +114,10 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
+# deafult system editor to zsh
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # react native setup
 #export ANDROID_HOME=$HOME/Android/Sdk/tools
 #export PATH=$ANDROID_HOME:$PATH

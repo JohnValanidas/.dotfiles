@@ -144,6 +144,10 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 # auto compleetion
 source /usr/share/doc/fzf/examples/completion.bash
 
+# default to editor to nvim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 
 # react native setup
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
