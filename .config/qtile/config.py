@@ -30,7 +30,8 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+# terminal = guess_terminal()
+terminal = "kitty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -73,24 +74,44 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+############ GROUPS ###########
+def init_group_names():
+    return [("WWW", {'layout': 'max'}),
+            ("DEV", {'layout': 'max'}),
+            ("TEST", {'layout': 'max'}),
+            ("CHAT", {'layout': 'max'}),
+            ("VNC", {'layout': 'max'}),
+            ("MEDIA", {'layout': 'max'}),
+            ("DEV", {'layout': 'max'}),
+           ]
+def init_group(group_names):
+    return [Group(name, **kwargs) for name, kwargs in group_names]
 
-for i in groups:
+
+#if __name__ in ["config", "__main__"]:
+group_names = init_group_names()
+groups = init_group(group_names)
+
+# groups = [Group(i) for i in "123456789"]
+
+for i, group in enumerate(groups):
+    # need to start at 1 
+    i = i + 1
     keys.extend(
         [
             # mod1 + letter of group = switch to group
             Key(
                 [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                str(i),
+                lazy.group[group.name].toscreen(),
+                desc="Switch to group {}".format(group.name),
             ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                str(i),
+                lazy.window.togroup(group.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(group.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -122,12 +143,16 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# customization
+primary_font = "Fira Coda"
+
+
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                # widget.CurrentLayout(),
+                widget.GroupBox(font=primary_font),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -136,12 +161,13 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # widget.TextBox("default config", name="default"),
+                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
+                widget.Wallpaper(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%A, %B, %d - %I:%M %p"),
                 widget.QuickExit(),
             ],
             30,
