@@ -82,7 +82,7 @@ def init_group_names():
             ("CHAT", {'layout': 'max'}),
             ("VNC", {'layout': 'max'}),
             ("MEDIA", {'layout': 'max'}),
-            ("DEV", {'layout': 'max'}),
+            ("SCHOOL", {'layout': 'max'}),
            ]
 def init_group(group_names):
     return [Group(name, **kwargs) for name, kwargs in group_names]
