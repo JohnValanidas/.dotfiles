@@ -7,7 +7,7 @@ vim.opt.mouse = "a"                             -- enable mouse
 vim.opt.pumheight = 10                          -- popup menu height
 vim.opt.clipboard = "unnamedplus"
 
-
+vim.opt.termguicolors = true
 
 -- Pulled from old config
 vim.opt.wildmenu = true
