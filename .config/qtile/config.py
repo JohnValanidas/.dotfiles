@@ -137,7 +137,8 @@ layouts = [
 ]
 
 # customization
-primary_font = "Fira Coda"
+# primary_font = "Fira Coda"
+primary_font = "Cascadia Mono"
 widget_defaults = dict(
     font=primary_font,
     fontsize=20,

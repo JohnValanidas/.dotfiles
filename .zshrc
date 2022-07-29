@@ -8,7 +8,7 @@ export ZSH="/home/valanidas/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jvalanidas"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -130,3 +130,9 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 # export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/valanidas/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/valanidas/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/valanidas/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/valanidas/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
