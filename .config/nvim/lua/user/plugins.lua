@@ -57,16 +57,20 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completion
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completions
+    use "hrsh7th/cmp-nvim-lua" -- lua completions
     use "David-Kunz/cmp-npm" -- npm completions in package.json
 
     -- Snippets
     use "L3MON4D3/LuaSnip" -- snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-    
+
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- language server installer
-    
+
+    -- LSP support plugins
+    use "b0o/schemastore.nvim"
+
     -- Automatically set up your configuration after calling packer.nvim
     -- MUST GO AT THE END
     if PACKER_BOOTSTRAP then

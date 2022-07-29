@@ -111,6 +111,8 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[NVIM_LUA]",
         npm = "[NPM]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
@@ -120,6 +122,8 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "nvim_lsp"},
+    { name = "nvim_lua" },
     { name = "npm", keyword_length = 4 },
     { name = "luasnip" },
     { name = "buffer" },
