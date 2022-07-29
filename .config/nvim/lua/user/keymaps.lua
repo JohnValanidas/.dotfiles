@@ -45,3 +45,7 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+
+-- Telescope
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<CR>", opts)

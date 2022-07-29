@@ -41,15 +41,19 @@ packer.init {
 }
 
 -- Install plugins here
-return packer.startup(function(use) 
+return packer.startup(function(use)
     -- 
     use "wbthomason/packer.nvim" -- have nvim manange itself
     use "nvim-lua/popup.nvim" -- an implementation of the Popup API from Vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions     
-    
+
+    -- General plugins
+    use "windwp/nvim-autopairs"
 
     -- Style
     use "EdenEast/nightfox.nvim"
+    use "kyazdani42/nvim-web-devicons"
+
     -- Completions
     use "hrsh7th/nvim-cmp" -- The completion plugin 
     use "hrsh7th/cmp-buffer" -- buffer completion
@@ -70,6 +74,14 @@ return packer.startup(function(use)
 
     -- LSP support plugins
     use "b0o/schemastore.nvim"
+
+    -- Telescope
+    use { "nvim-telescope/telescope.nvim", tag = '0.1.0' }
+    -- use "nvim-telescope/telescope-media-files.nvim" -- display images inside telescope preview
+    
+    -- Treesitter
+    use { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" }
+    use "p00f/nvim-ts-rainbow"
 
     -- Automatically set up your configuration after calling packer.nvim
     -- MUST GO AT THE END
