@@ -1,6 +1,6 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  vim.notify("cmp not found!") 
+  vim.notify("cmp not found!")
   return
 end
 

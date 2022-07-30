@@ -49,10 +49,14 @@ return packer.startup(function(use)
 
     -- General plugins
     use "windwp/nvim-autopairs"
+    use "numToStr/Comment.nvim"
 
     -- Style
     use "EdenEast/nightfox.nvim"
     use "kyazdani42/nvim-web-devicons"
+
+    -- Nvim Tree
+    use "kyazdani42/nvim-tree.lua"
 
     -- Completions
     use "hrsh7th/nvim-cmp" -- The completion plugin 
@@ -78,10 +82,18 @@ return packer.startup(function(use)
     -- Telescope
     use { "nvim-telescope/telescope.nvim", tag = '0.1.0' }
     -- use "nvim-telescope/telescope-media-files.nvim" -- display images inside telescope preview
-    
+
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" }
     use "p00f/nvim-ts-rainbow"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+
+    -- Git
+    use "lewis6991/gitsigns.nvim"
+
+    -- Bufferline
+    use "akinsho/bufferline.nvim"
+    use "moll/vim-bbye"
 
     -- Automatically set up your configuration after calling packer.nvim
     -- MUST GO AT THE END

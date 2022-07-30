@@ -49,3 +49,6 @@ keymap("v", ">", ">gv", opts)
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<CR>", opts)
+
+-- nvimtree
+keymap("n", "<F2>", ":NvimTreeToggle<CR>", opts)
