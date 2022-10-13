@@ -32,6 +32,7 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 # terminal = guess_terminal()
 terminal = "kitty"
+launcher_prompt = "rofi -show run"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -71,7 +72,7 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn(launcher_prompt), desc="Spawn a command using rofi"),
 ]
 
 ############ GROUPS ###########
@@ -83,6 +84,7 @@ def init_group_names():
             ("VNC", {'layout': 'max'}),
             ("MEDIA", {'layout': 'max'}),
             ("SCHOOL", {'layout': 'max'}),
+            ("NOTES", {'layout': 'max'})
            ]
 def init_group(group_names):
     return [Group(name, **kwargs) for name, kwargs in group_names]
@@ -154,7 +156,7 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(font=primary_font),
-                widget.Prompt(),
+                # widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={

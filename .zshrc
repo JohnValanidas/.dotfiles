@@ -136,3 +136,7 @@ if [ -f '/home/valanidas/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/ho
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/valanidas/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/valanidas/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+export PATH=$PATH:/home/valanidas/.spicetify
