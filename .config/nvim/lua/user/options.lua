@@ -15,7 +15,8 @@ vim.opt.wildmenu = true
 -- we never want to edit these files
 vim.opt.wildignore = {"*.docx", "*.jpg", "*.png", "*.gif", "*.pdf", "*.pyc", "*.exe", "*.flv", "*.img", "*.xlsx"}
 
-vim.opt.number = true
+vim.opt.number = false                             -- line number setting
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.shiftwidth = 2

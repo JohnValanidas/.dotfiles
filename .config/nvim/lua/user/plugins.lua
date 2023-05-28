@@ -51,6 +51,9 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
     use "numToStr/Comment.nvim"
 
+    -- Tmux compatability 
+    use "christoomey/vim-tmux-navigator"
+
     -- Style
     use "EdenEast/nightfox.nvim"
     use "kyazdani42/nvim-web-devicons"
