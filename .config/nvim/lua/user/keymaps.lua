@@ -49,6 +49,17 @@ keymap("v", ">", ">gv", opts)
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<CR>", opts)
+-- Telescope + LSP
+keymap("n", "<leader>d", "<cmd>Telescope lsp_definitions<CR>", opts)
+keymap("n", "<leader>r", "<cmd>Telescope lsp_references<CR>", opts)
+keymap("n", "<leader>i", "<cmd>Telescope lsp_implementation<CR>", opts)
+
+-- BufferLine
+keymap("n", "<c-n>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("n", "<c-p>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<c-q>", "<cmd><CR>", opts)
 
 -- nvimtree
 keymap("n", "<F2>", ":NvimTreeToggle<CR>", opts)
+
+-- TmuxNavigate
