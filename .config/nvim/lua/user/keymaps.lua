@@ -54,6 +54,11 @@ keymap("n", "<leader>d", "<cmd>Telescope lsp_definitions<CR>", opts)
 keymap("n", "<leader>r", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "<leader>i", "<cmd>Telescope lsp_implementation<CR>", opts)
 
+
+-- LSP
+keymap("n", "<a-f>", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+
+
 -- BufferLine
 keymap("n", "<c-n>", "<cmd>BufferLineCycleNext<CR>", opts)
 keymap("n", "<c-p>", "<cmd>BufferLineCyclePrev<CR>", opts)
