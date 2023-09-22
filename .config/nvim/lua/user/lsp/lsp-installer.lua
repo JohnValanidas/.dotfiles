@@ -1,62 +1,31 @@
-local status_ok, lsp_installer = pcall(require, "mason")
+local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
-    vim.notify("can't find mason")
+    vim.notify("can't find mason-lspconfig")
     return
 end
 
+local status_ok, lspconfig = pcall(require, "lspconfig")
+if not status_ok then
+  vim.notify("can't find lspconifg")
+return
+end
 -- Register handler that will be called for each and ever installed server
 
-lsp_installer.on_server_ready(function(server)
-    -- Refer to here for more insperation: https://youtu.be/6F3ONwrCxMg?t=1090
+mason_lspconfig.setup {
+  ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "pyright", "clangd", "bashls", "html", "cssls" }
+}
+
+local capabilties = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+
+mason_lspconfig.setup_handlers({
+  function(server_name) -- calls this function on every single installed lsp
     local opts = {
-        on_attach = require("user.lsp.handlers").on_attach,
-        capabilities = require("user.lsp.handlers").capabilities,
+      capabilties = capabilties,
+      on_attach = on_attach,
     }
+    lspconfig[server_name].setup(opts)
+  end,
 
-    -- customize servers here
-    -- (optional) Customize the options passed to the servers
-    if server.name == "jsonls" then
-        local status_ok, schema_store = pcall(require, "schemastore")
-        if status_ok then
-            schemas = {
-                init_options = {
-                    provideFormatter = false,
-                },
-                settings = {
-                    json = {
-                        schemas = schema_store.json.schemas(),
-                    },
-                },
-                setup = {
-                    commands = {
-
-                    },
-                },
-            }
-            opts = vim.tbl_deep_extend("force", schemas, opts)
-        else
-            vim.notify("failed to load schemas for jsonls")
-        end
-    end
-
-    if server.name == "sumneko_lua" then
-        local sumneko_opts = require("user.lsp.settings.sumneko_lua")
-        opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    end
-
-
-
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-    
-
-    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-    -- before passing it onwards to lspconfig.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md 
-
-
-    server:setup(opts)
-end)
-
-    
+  -- Change opts as desired
+})
