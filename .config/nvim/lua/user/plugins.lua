@@ -60,7 +60,8 @@ return packer.startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Nvim Tree
-    use "kyazdani42/nvim-tree.lua"
+    use "nvim-tree/nvim-tree.lua"
+    use "nvim-tree/nvim-web-devicons" 
 
     -- Completions
     use "hrsh7th/nvim-cmp" -- The completion plugin 
@@ -77,8 +78,13 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
-    use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- language server installer
+    -- use "neovim/nvim-lspconfig" -- enable LSP
+    -- use "williamboman/nvim-lsp-installer" -- language server installer
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
+    use { "neovim/nvim-lspconfig" }
+
+    -- use "nvimdev/guard" -- code formatter
 
     -- LSP support plugins
     use "b0o/schemastore.nvim"

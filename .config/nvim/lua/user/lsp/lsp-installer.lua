@@ -1,6 +1,6 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "mason")
 if not status_ok then
-    vim.notify("can't find nvim-lsp-installer")
+    vim.notify("can't find mason")
     return
 end
 
