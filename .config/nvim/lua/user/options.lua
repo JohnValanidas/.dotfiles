@@ -1,5 +1,5 @@
 vim.opt.backup = false                          -- Backup setting
-vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect"}   -- CMP option
 vim.opt.conceallevel = 0                        -- So that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"
