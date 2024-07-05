@@ -13,7 +13,7 @@ ZSH_THEME="jvalanidas"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
+# If set to an empty array, this variable will have no effect.eval "$(rbenv init - zsh)e
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -105,6 +105,8 @@ ZSH_TMUX_AUTOSTART=false
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export TERM=xterm-256color
+
 # source "./.aliases"
 
 source $ZSH/oh-my-zsh.sh
@@ -116,7 +118,7 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/valanidas/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/valanidas/miniconda3/etc/profile.d/conda.sh"
+# . "/home/valanidas/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
         export PATH="/home/valanidas/miniconda3/bin:$PATH"
     fi
@@ -132,12 +134,15 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # FZF settup
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
+source <(fzf --zsh)
 
 # deafult system editor to zsh
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+eval "$(rbenv init - zsh)"
 
 # react native setup
 #export ANDROID_HOME=$HOME/Android/Sdk/tools
@@ -157,3 +162,7 @@ if [ -f '/home/valanidas/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 export PATH=$PATH:/home/valanidas/.spicetify
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
