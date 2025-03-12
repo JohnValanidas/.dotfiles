@@ -61,7 +61,7 @@ return packer.startup(function(use)
 
     -- Nvim Tree
     use "nvim-tree/nvim-tree.lua"
-    use "nvim-tree/nvim-web-devicons" 
+    use "nvim-tree/nvim-web-devicons"
 
     -- Completions
     use "hrsh7th/nvim-cmp" -- The completion plugin 
@@ -90,7 +90,7 @@ return packer.startup(function(use)
     use "b0o/schemastore.nvim"
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag = '0.1.0' }
+    use { "nvim-telescope/telescope.nvim", tag = '0.1.8' }
     -- use "nvim-telescope/telescope-media-files.nvim" -- display images inside telescope preview
 
     -- Treesitter
